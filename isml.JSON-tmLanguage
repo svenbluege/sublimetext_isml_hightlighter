@@ -1,0 +1,46 @@
+{
+    "name": "ISML",
+    "scopeName": "source.isml",
+    "fileTypes": [
+        "isml"
+    ],
+    "patterns": [
+        {
+            "name": "comment.block.isml",
+            "comment": "isml comment syntax",
+            "begin": "<!---|<iscomment>",
+            "end": "---\\s*>|</iscomment>",
+            "patterns": []
+        },
+        {
+            "name": "constant.other",
+            "comment": "isml comment syntax",
+            "begin": "#",
+            "end": "#",
+            "patterns": []
+        },
+        {
+            "begin": "</?([iI][sS][a-zA-z0-9:]+)",
+            "end": "/?>",
+            "beginCaptures": {
+                "1": {
+                    "name": "support.function"
+                }
+            },
+            "patterns": [
+                {
+                    "match": "\\b([a-zA-Z\\-:]+)",
+                    "name": "entity.other.attribute-name"
+                },
+                {
+                    "include": "$self"
+                }
+            ],
+            "comment": "isml language contructs"
+        },
+        {
+            "include": "text.html.jsp"
+        }
+    ],
+    "uuid": "3b465cc9-fc4d-4b96-b86b-62e670f0d551"
+}

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>isml</string>
+	</array>
+	<key>name</key>
+	<string>ISML</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>begin</key>
+			<string>&lt;!---|&lt;iscomment&gt;</string>
+			<key>comment</key>
+			<string>isml comment syntax</string>
+			<key>end</key>
+			<string>---\s*&gt;|&lt;/iscomment&gt;</string>
+			<key>name</key>
+			<string>comment.block.isml</string>
+			<key>patterns</key>
+			<array>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>#</string>
+			<key>comment</key>
+			<string>isml comment syntax</string>
+			<key>end</key>
+			<string>#</string>
+			<key>name</key>
+			<string>constant.other</string>
+			<key>patterns</key>
+			<array>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>&lt;/?([iI][sS][a-zA-z0-9:]+)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.function</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>isml language contructs</string>
+			<key>end</key>
+			<string>/?&gt;</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\b([a-zA-Z\-:]+)</string>
+					<key>name</key>
+					<string>entity.other.attribute-name</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>$self</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>text.html.jsp</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.isml</string>
+	<key>uuid</key>
+	<string>3b465cc9-fc4d-4b96-b86b-62e670f0d551</string>
+</dict>
+</plist>
